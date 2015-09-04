@@ -75,4 +75,23 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~ $ python ~/kivy/examples/demo/showcase/main.py
 
+19. If you'd like, explore the other examples in `~/kivy/examples/`.
 
+20. To try Kivy and GPIO together, download this repo to your Raspberry Pi if you haven't already:
+
+        pi@raspberrypi ~ $ git clone https://github.com/mrichardson23/rpi-kivy-screen.git
+
+21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 as an LED, and 22 as a button (pulled HIGH, so connect one leg of the button to 22 and the other to ground.)
+
+22. First try to run the example as root (root access is required for the GPIO library):
+
+        pi@raspberrypi ~ $ cd rpi-kivy-screen/
+        pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
+
+22. As you'll see, touch doesn't work! To fix this, you need to make the same change to `config.ini` we made before, but to the root account's config file. Exit (`Control+C`) and copy over your home directory's Kivy configuration file to overwrite the root account's: 
+
+        pi@raspberrypi ~/rpi-kivy-screen $ sudo cp ~/.kivy/config.ini /root/.kivy/config.ini
+
+23. Run the example again and you'll be able to control the LED and buzzer. You'll also be able to see the state of the physical button!
+
+        pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
