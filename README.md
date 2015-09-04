@@ -26,12 +26,9 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 7. Type `Control+X` to exit nano. Then press `Y` and `Enter` to save the file. You'll be back on the command line.
 
-8. Download and add the GPG key for the Gstreamer sources:
+8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI`, just try to run the command again. You shold see `gpg: imported: 1`):
 
         pi@raspberrypi ~ $ gpg --recv-keys 0C667A3E
-
-(If you get an error, `gpg: keyserver receive failed: bad URI`, just try to run the command again. You shold see `gpg: imported: 1`)
-
         pi@raspberrypi ~ $ gpg -a --export 0C667A3E | sudo apt-key add -
 
 9. Install the dependencies:
@@ -42,17 +39,14 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
         gstreamer1.0-plugins-{bad,base,good,ugly} \
         gstreamer1.0-{omx,alsa} python-dev
 
-10. Install pip from source (not sure if/why it must be from source and not via apt):
+10. Install pip from source (not sure if/why it must be from source and not via apt). You can ignore any messages about `InsecurePlatformWarning`:
 
         pi@raspberrypi ~ $ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
         pi@raspberrypi ~ $ sudo python get-pip.py
 
-(You can ignore any messages about `InsecurePlatformWarning`)
-
-11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code we'll execute uses them:
+11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code we'll execute uses them. This step will take a while:
 
         pi@raspberrypi ~ $ sudo pip install cython pygments docutils
 
-(Ignore errors like `Failed building wheel for cython`)
 
 
