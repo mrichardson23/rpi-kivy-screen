@@ -1,7 +1,7 @@
 # Using Kivy with the official Raspberry Pi Touch Screen
 
 The guide below and example code will get you started setting up the Raspberry Pi touch screen and getting Kivy working with it. [Kivy](http://kivy.org/) is an "open source Python library for rapid development of applications
-that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you're using a fresh install of Raspbian (2015-05-05 release), an Internet connection, and have the screen connected and working. It also assumes that you're already familiar with Raspberry Pi to get yourself to the command line. It's where we'll start.
+that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you're using a fresh install of Raspbian (2015-05-05 release), an Internet connection, and have the screen connected and working. It also assumes that you're already familiar with Raspberry Pi to get yourself to the command line, which you can do locally or via SSH. The command line is where you'll start.
 
 1. Update your software. This is required with the 2015-05-05 Raspbian image in order to get touch working. This step will take a few minutes:
 
@@ -26,7 +26,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 7. Type `Control+X` to exit nano. Then press `Y` and `Enter` to save the file. You'll be back on the command line.
 
-8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI`, just try to run the command again. You shold see `gpg: imported: 1`):
+8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI`, just try to run the command again. You should see `gpg: imported: 1`):
 
         pi@raspberrypi ~ $ gpg --recv-keys 0C667A3E
         pi@raspberrypi ~ $ gpg -a --export 0C667A3E | sudo apt-key add -
@@ -44,9 +44,35 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
         pi@raspberrypi ~ $ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
         pi@raspberrypi ~ $ sudo python get-pip.py
 
-11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code we'll execute uses them. This step will take a while:
+11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code we'll execute uses them. This step will take a few minutes:
 
         pi@raspberrypi ~ $ sudo pip install cython pygments docutils
 
+12. Download Kivy and install it globally (this step will take quite a few minutes):
+
+        pi@raspberrypi ~ $ git clone https://github.com/kivy/kivy
+        pi@raspberrypi ~ $ cd kivy
+        pi@raspberrypi ~/kivy $ python setup.py build
+        pi@raspberrypi ~/kivy $ sudo python setup.py install
+
+13. To enable touch, you'll need to make a modification to the Kivy configuration file:
+
+        pi@raspberrypi ~/kivy $ nano ~/.kivy/config.ini
+
+14. Go into the `[input]` section, remove the lines that are in there and put in:
+
+        %(name)s = probesysfs,provider=mtdev
+
+15. Reboot again.
+
+16. Launch the multi touch pictures demo. Tap, drag, pinch, and rotate should all work like a dream:
+
+        pi@raspberrypi ~ $ python ~/kivy/examples/demo/pictures/main.py
+
+17. Type `Control+C` to exit the pictures demo.
+
+18. Launch the UI showcase. This shows you all the different UI elements that Kivy makes available to you:
+
+        pi@raspberrypi ~ $ python ~/kivy/examples/demo/showcase/main.py
 
 
