@@ -61,7 +61,7 @@ class MyApp(App):
 			self.rect = Rectangle(size=(800,600), pos=layout.pos)
 
 		# Establish the UI elements (and bind them to events, if necessary):
-		inputDisplay = InputButton(text="Input", value=ButtonState)
+		inputDisplay = InputButton(text="Input")
 		Clock.schedule_interval(inputDisplay.update, 1.0/10.0)
 		outputControl = ToggleButton(text="LED")
 		outputControl.bind(on_press=my_press_callback)
