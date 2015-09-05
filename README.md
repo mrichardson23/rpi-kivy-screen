@@ -1,7 +1,7 @@
 # Using Kivy with the official Raspberry Pi Touch Screen
 
 The guide below and example code will get you started setting up the Raspberry Pi touch screen and getting Kivy working with it. [Kivy](http://kivy.org/) is an "open source Python library for rapid development of applications
-that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you're using a fresh install of Raspbian (2015-05-05 release), an Internet connection, and have the screen connected and working. It also assumes that you're already familiar with Raspberry Pi to get yourself to the command line, which you can do locally or via SSH. The command line is where you'll start.
+that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you have a fresh install of Raspbian (2015-05-05 release), an Internet connection, and  the screen is connected and working. It also assumes that you're already familiar with Raspberry Pi enough to get yourself to the command line. You can run this code locally or via SSH. The command line is where you'll start.
 
 1. Update your software. This is required with the 2015-05-05 Raspbian image in order to get touch working. This step will take a few minutes:
 
