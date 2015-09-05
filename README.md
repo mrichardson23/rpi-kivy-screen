@@ -26,7 +26,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 7. Type `Control+X` to exit nano. Then press `Y` and `Enter` to save the file. You'll be back on the command line.
 
-8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI`, just try to run the command again. You should see `gpg: imported: 1`):
+8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI` after the first command, just try to run that command again. You should see `gpg: imported: 1`):
 
         pi@raspberrypi ~ $ gpg --recv-keys 0C667A3E
         pi@raspberrypi ~ $ gpg -a --export 0C667A3E | sudo apt-key add -
@@ -44,7 +44,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
         pi@raspberrypi ~ $ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
         pi@raspberrypi ~ $ sudo python get-pip.py
 
-11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code we'll execute uses them. This step will take a few minutes:
+11. Install [Cython](http://cython.org/), [Pygments](http://pygments.org/), and [docutils](https://pypi.python.org/pypi/docutils). The Pygments and docutils packages are not actually required for Kivy, but the example code you'll execute uses them. This step will take a few minutes:
 
         pi@raspberrypi ~ $ sudo pip install cython pygments docutils
 
@@ -81,14 +81,14 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~ $ git clone https://github.com/mrichardson23/rpi-kivy-screen.git
 
-21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 as an LED, and 22 as a button (pulled HIGH, so connect one leg of the button to 22 and the other to ground.)
+21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 as an LED, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
 
 22. First try to run the example as root (root access is required for the GPIO library):
 
         pi@raspberrypi ~ $ cd rpi-kivy-screen/
         pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
 
-22. As you'll see, touch doesn't work! To fix this, you need to make the same change to `config.ini` we made before, but to the root account's config file. Exit (`Control+C`) and copy over your home directory's Kivy configuration file to overwrite the root account's: 
+22. As you'll see, touch doesn't work. To fix this, you need to make the same change to `config.ini` you made before, but to the root account's config file. Exit (`Control+C`) and copy over your home directory's Kivy configuration file to overwrite the root account's: 
 
         pi@raspberrypi ~/rpi-kivy-screen $ sudo cp ~/.kivy/config.ini /root/.kivy/config.ini
 
