@@ -83,7 +83,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~ $ git clone https://github.com/mrichardson23/rpi-kivy-screen.git
 
-21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 as an LED, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
+21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 and 10 as LEDs, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
 
 22. First try to run the example as root (root access is required for the GPIO library):
 
