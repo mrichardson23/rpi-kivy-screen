@@ -41,7 +41,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
         gstreamer1.0-plugins-{bad,base,good,ugly} \
         gstreamer1.0-{omx,alsa} python-dev
 
-10. Install pip from source (not sure if/why it must be from source and not via apt). You can ignore any messages about `InsecurePlatformWarning`:
+10. Install pip from source, as the version that is in the Raspbian apt repository is too old. You can ignore any messages about `InsecurePlatformWarning`:
 
         pi@raspberrypi ~ $ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
         pi@raspberrypi ~ $ sudo python get-pip.py
@@ -63,29 +63,29 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 14. Go into the `[input]` section, remove the lines that are in there and put in:
 
-        %(name)s = probesysfs,provider=mtdev
+        mouse = mouse
+        mtdev_%(name)s = probesysfs,provider=mtdev
+        hid_%(name)s = probesysfs,provider=hidinput
 
-15. Reboot again.
-
-16. Launch the multi touch pictures demo. Tap, drag, pinch, and rotate should all work like a dream:
+15. Launch the multi touch pictures demo. Tap, drag, pinch, and rotate should all work like a dream:
 
         pi@raspberrypi ~ $ python ~/kivy/examples/demo/pictures/main.py
 
-17. Type `Control+C` to exit the pictures demo.
+16. Type `Control+C` to exit the pictures demo.
 
-18. Launch the UI showcase. This shows you all the different UI elements that Kivy makes available to you:
+17. Launch the UI showcase. This shows you all the different UI elements that Kivy makes available to you:
 
         pi@raspberrypi ~ $ python ~/kivy/examples/demo/showcase/main.py
 
-19. If you'd like, explore the other examples in `~/kivy/examples/`.
+18. If you'd like, explore the other examples in `~/kivy/examples/`.
 
-20. To try Kivy and GPIO together, download this repo to your Raspberry Pi if you haven't already:
+19. To try Kivy and GPIO together, download this repo to your Raspberry Pi if you haven't already:
 
         pi@raspberrypi ~ $ git clone https://github.com/mrichardson23/rpi-kivy-screen.git
 
-21. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 and 10 as LEDs, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
+20. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 and 10 as LEDs, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
 
-22. First try to run the example as root (root access is required for the GPIO library):
+21. First try to run the example as root (root access is required for the GPIO library):
 
         pi@raspberrypi ~ $ cd rpi-kivy-screen/
         pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
