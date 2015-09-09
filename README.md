@@ -63,9 +63,9 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 14. Go into the `[input]` section, remove the lines that are in there and put in:
 
-	mouse = mouse
-	mtdev_%(name)s = probesysfs,provider=mtdev
-	hid_%(name)s = probesysfs,provider=hidinput
+        mouse = mouse
+        mtdev_%(name)s = probesysfs,provider=mtdev
+        hid_%(name)s = probesysfs,provider=hidinput
 
 15. Launch the multi touch pictures demo. Tap, drag, pinch, and rotate should all work like a dream:
 
