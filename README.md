@@ -57,7 +57,11 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
         pi@raspberrypi ~/kivy $ python setup.py build
         pi@raspberrypi ~/kivy $ sudo python setup.py install
 
-13. To enable touch, you'll need to make a modification to the Kivy configuration file:
+13. To enable touch, you'll need to make a modification to the default Kivy configuration file. To create that file, first run an example:
+
+        pi@raspberrypi ~/kivy $ python ~/kivy/examples/demo/pictures/main.py
+
+13. Quit the example with `Ctrl+C` and then open the newly-created `config.ini` file for editing:
 
         pi@raspberrypi ~/kivy $ nano ~/.kivy/config.ini
 
