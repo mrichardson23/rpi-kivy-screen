@@ -103,4 +103,4 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
 
-Even though root access isn't required for Python GPIO starting with the Jessie version of Raspbian, it may be helpful to copy the config.ini file anyway in case you decide to have root execute your project on startup, for instance.
+Even though root access isn't required for Python GPIO starting with the Jessie version of Raspbian, it may be helpful to copy the `config.ini` file anyway in case you decide to have the root user execute your project immediately after boot up.
