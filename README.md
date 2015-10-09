@@ -3,7 +3,7 @@
 [![Demo video](http://img.youtube.com/vi/Eah3Zq18OyM/0.jpg)](http://www.youtube.com/watch?v=Eah3Zq18OyM)
 
 The guide below and example code will get you started setting up the Raspberry Pi touch display and getting Kivy working with it. [Kivy](http://kivy.org/) is an "open source Python library for rapid development of applications
-that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you have a fresh install of Raspbian (2015-05-05 release), an Internet connection, and  the displaysc is connected and working. It also assumes that you're already familiar with Raspberry Pi enough to get yourself to the command line. You can run this code locally or via SSH. The command line is where you'll start.
+that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you have a fresh install of Raspbian (the 2015-05-05 Wheezy release or the 2015-09-24 Jessie release), an Internet connection, and  the display is connected and working. It also assumes that you're already familiar with Raspberry Pi enough to get yourself to the command line. You can run this code locally or via SSH. The command line is where you'll start.
 
 1. Update your software. This is required with the 2015-05-05 Raspbian image in order to get touch working. This step will take a few minutes:
 
@@ -28,9 +28,9 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 7. Type `Control+X` to exit nano. Then press `Y` and `Enter` to save the file. You'll be back on the command line.
 
-8. Download and add the GPG key for the Gstreamer sources (If you get an error, `gpg: keyserver receive failed: bad URI` after the first command, just try to run that command again. You should see `gpg: imported: 1`):
+8. Download and add the GPG key for the Gstreamer sources:
 
-        pi@raspberrypi ~ $ gpg --recv-keys 0C667A3E
+        pi@raspberrypi ~ $ gpg --keyserver pgp.mit.edu --recv-keys 0C667A3E
         pi@raspberrypi ~ $ gpg -a --export 0C667A3E | sudo apt-key add -
 
 9. Install the dependencies:
@@ -73,23 +73,24 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
 15. Launch the multi touch pictures demo. Tap, drag, pinch, and rotate should all work like a dream:
 
-        pi@raspberrypi ~ $ python ~/kivy/examples/demo/pictures/main.py
+        pi@raspberrypi ~/kivy $ python ~/kivy/examples/demo/pictures/main.py
 
 16. Type `Control+C` to exit the pictures demo.
 
 17. Launch the UI showcase. This shows you all the different UI elements that Kivy makes available to you:
 
-        pi@raspberrypi ~ $ python ~/kivy/examples/demo/showcase/main.py
+        pi@raspberrypi ~/kivy $ python ~/kivy/examples/demo/showcase/main.py
 
 18. If you'd like, explore the other examples in `~/kivy/examples/`.
 
 19. To try Kivy and GPIO together, download this repo to your Raspberry Pi if you haven't already:
 
+        pi@raspberrypi ~/kivy $ cd ~
         pi@raspberrypi ~ $ git clone https://github.com/mrichardson23/rpi-kivy-screen.git
 
 20. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 and 10 as LEDs, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
 
-21. First try to run the example as root (root access is required for the GPIO library):
+21. First try to run the example as root (in versions of Raspbian before Jessie, root access is required for the GPIO library):
 
         pi@raspberrypi ~ $ cd rpi-kivy-screen/
         pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
@@ -98,6 +99,8 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~/rpi-kivy-screen $ sudo cp ~/.kivy/config.ini /root/.kivy/config.ini
 
-23. Run the example again and you'll be able to control the LED and buzzer. You'll also be able to see the state of the physical button!
+23. Run the example again and you'll be able to control the LED and buzzer. You'll also be able to see the state of the physical button! 
 
         pi@raspberrypi ~/rpi-kivy-screen $ sudo python main.py 
+
+Even though root access isn't required for Python GPIO starting with the Jessie version of Raspbian, it may be helpful to copy the config.ini file anyway in case you decide to have root execute your project on startup, for instance.
