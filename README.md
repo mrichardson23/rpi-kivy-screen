@@ -9,7 +9,7 @@ that make use of innovative user interfaces, such as multi-touch apps." This gui
 
         pi@raspberrypi ~ $ sudo apt-get update && sudo apt-get -y upgrade
 
-2. Reboot:
+2. Reboot (this is not required, but might be a good idea if you're working from an older version of Raspbian):
 
         pi@raspberrypi ~ $ sudo reboot
 
