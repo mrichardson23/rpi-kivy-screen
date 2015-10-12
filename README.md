@@ -3,7 +3,13 @@
 [![Demo video](http://img.youtube.com/vi/Eah3Zq18OyM/0.jpg)](http://www.youtube.com/watch?v=Eah3Zq18OyM)
 
 The guide below and example code will get you started setting up the Raspberry Pi touch display and getting Kivy working with it. [Kivy](http://kivy.org/) is an "open source Python library for rapid development of applications
-that make use of innovative user interfaces, such as multi-touch apps." This guide assumes you have a fresh install of Raspbian (the 2015-05-05 Wheezy release or the 2015-09-24 Jessie release), an Internet connection, and  the display is connected and working. It also assumes that you're already familiar with Raspberry Pi enough to get yourself to the command line. You can run this code locally or via SSH. The command line is where you'll start.
+that make use of innovative user interfaces, such as multi-touch apps."
+
+This guide assumes you have a fresh install of Raspbian (the 2015-05-05 Wheezy release or the 2015-09-24 Jessie release), an Internet connection, and  the display is connected and working. It also assumes that you're already familiar with Raspberry Pi enough to get yourself to the command line. You can run this code locally or via SSH.
+
+*Note:* I don't recommend executing these steps with the desktop envioronment running. It may slow down the set up process and cause problems with running Kivy apps. If you're set up to boot to into the desktop enviroment on Raspbian Jessie, click the Raspberry Menu → Preferences → Raspberry Pi Configuration. Change the Boot setting from Desktop to CLI and then reboot.
+
+The command line is where you'll start:
 
 1. Update your software. This is required with the 2015-05-05 Raspbian image in order to get touch working. This step will take a few minutes:
 
