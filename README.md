@@ -96,7 +96,7 @@ The command line is where you'll start:
 
 20. The example uses BCM GPIO pins 17 as a piezo buzzer, 27 and 10 as LEDs, and 22 as a button (with internal pullups set HIGH, so connect one leg of the button to 22 and the other to ground.)
 
-![Wiring Diagram](https://github.com/mrichardson23/rpi-kivy-screen/blob/master/diagram.png)
+    ![Wiring Diagram](https://github.com/mrichardson23/rpi-kivy-screen/blob/master/diagram.png)
 
 21. First try to run the example as root (in versions of Raspbian before Jessie, root access is required for the GPIO library):
 
